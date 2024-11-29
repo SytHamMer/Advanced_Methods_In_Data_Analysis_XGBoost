@@ -52,7 +52,7 @@ def best_parameters_regression(X_train,y_train): #This function will be use to d
         "objective": ["reg:squarederror","reg:absoluteerror"],
     }
     xgb_model = xgb.XGBRegressor()
-    n_iter_search = 200  # Number of parameter settings that are sampled
+    n_iter_search = 50  # Number of parameter settings that are sampled
     random_search = RandomizedSearchCV(xgb_model, param_distributions=parameters, n_iter=n_iter_search, scoring='neg_mean_squared_error', cv=5, n_jobs=-1)
 
     # Add a progress bar to the fit method
